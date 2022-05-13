@@ -1,16 +1,14 @@
 <template>
-  <div class="container">
-    <column-list :list="list"></column-list>
-  </div>
+  <div class="container"></div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import ColumnList, { ColumnProps } from './components/ColumnList.vue'
+import ColumnList, { ColumnProps } from '@/components/ColumnList'
 
 const testData: ColumnProps[] = [
-  {
+    {
     id: 1,
     title: 'test1的专栏',
     description: '这是的test1专栏，有一段非常有意思的简介，可以更新一下欧',
@@ -26,14 +24,7 @@ const testData: ColumnProps[] = [
 
 export default defineComponent({
   name: 'App',
-  components: {
-    ColumnList
-  },
-  setup () {
-    return {
-      list: testData
-    }
-  }
+  components: {}
 })
 </script>
 

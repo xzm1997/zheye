@@ -1,13 +1,13 @@
 <template>
   <div class="container">
-    <column-list :list="list"></column-list>
+    
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import ColumnList, { ColumnProps } from './components/ColumnList.vue'
+import ColumnList, { ColumnProps } from '@/components/ColumnList'
 
 const testData: ColumnProps[] = [
   {
@@ -29,10 +29,9 @@ export default defineComponent({
   components: {
     ColumnList
   },
-  setup () {
+  setup() {
     return {
       list: testData
-    }
   }
 })
 </script>

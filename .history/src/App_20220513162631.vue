@@ -29,10 +29,9 @@ export default defineComponent({
   components: {
     ColumnList
   },
-  setup () {
+  setup() {
     return {
       list: testData
-    }
   }
 })
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <column-list :list="list"></column-list>
+
   </div>
 </template>
 
@@ -29,10 +29,9 @@ export default defineComponent({
   components: {
     ColumnList
   },
-  setup () {
+  setup() {
     return {
       list: testData
-    }
   }
 })
 </script>
