@@ -32,11 +32,11 @@ export default defineComponent({
       required: true
     }
   },
-  setup (props) {
+  setup(props) {
     const columnList = computed(() => {
       return props.list.map(column => {
         if (!column.avatar) {
-          column.avatar = require('../assets/logo.png')
+          column.avatar = require('@/assets/logo.jpg')
         }
         return column
       })

@@ -13,7 +13,7 @@ import GlobalHeader, { UserProps } from './components/GlobalHeader.vue'
 
 const currentUser: UserProps = {
   isLogin: true,
-  name: 'Poco'
+  name: Poco
 }
 
 const testData: ColumnProps[] = [

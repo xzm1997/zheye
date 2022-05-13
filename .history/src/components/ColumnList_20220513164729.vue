@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div v-for="column in columnList" :key="column.id" class="col-4 mb-4
+    <div v-for="column in list" :key="column.id" class="col-4 mb-4
     ">
       <div class="card h-100 shadow-sm">
         <div class="card-body text-center">
@@ -32,18 +32,14 @@ export default defineComponent({
       required: true
     }
   },
-  setup (props) {
+  setup(props) {
     const columnList = computed(() => {
       return props.list.map(column => {
         if (!column.avatar) {
-          column.avatar = require('../assets/logo.png')
+          column.avatar = require('@/assets/column')
         }
-        return column
       })
     })
-    return {
-      columnList
-    }
   }
 })
 </script>

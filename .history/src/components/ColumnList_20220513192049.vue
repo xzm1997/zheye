@@ -36,7 +36,7 @@ export default defineComponent({
     const columnList = computed(() => {
       return props.list.map(column => {
         if (!column.avatar) {
-          column.avatar = require('../assets/logo.png')
+          column.avatar = require('D:\\source\\web\\web_learning\\zhihu\\zheye\\src\\assets\\logo.png')
         }
         return column
       })

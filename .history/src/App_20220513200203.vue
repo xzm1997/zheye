@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <global-header :user="currentUser"></global-header>
     <column-list :list="list"></column-list>
+    <global-header :user="currentUser"></global-header>
   </div>
 </template>
 
@@ -12,8 +12,7 @@ import ColumnList, { ColumnProps } from './components/ColumnList.vue'
 import GlobalHeader, { UserProps } from './components/GlobalHeader.vue'
 
 const currentUser: UserProps = {
-  isLogin: true,
-  name: 'Poco'
+  isLogin: false
 }
 
 const testData: ColumnProps[] = [
