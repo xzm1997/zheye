@@ -9,7 +9,7 @@
       <li class="list-inline-item">
         <drop-down :title="`你好 ${user.name}`">
           <dropdown-item><a href="#" class="dropdown-item">新建文章</a></dropdown-item>
-          <dropdown-item disabled><a href="#" class="dropdown-item">编辑资料</a></dropdown-item>
+          <dropdown-item><a href="#" class="dropdown-item">编辑资料</a></dropdown-item>
           <dropdown-item><a href="#" class="dropdown-item">退出登录</a></dropdown-item>
         </drop-down>
       </li>
@@ -20,6 +20,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
 import DropDown from './Dropdown.vue'
+import DropdownItem from './components/DropdownItem'
 import DropdownItem from './DropdownItem.vue'
 export interface UserProps {
   isLogin: boolean;
@@ -30,6 +31,7 @@ export default defineComponent({
   name: 'GlobalHeader',
   components: {
     DropDown,
+    DropdownItem,
     DropdownItem
   },
   props: {

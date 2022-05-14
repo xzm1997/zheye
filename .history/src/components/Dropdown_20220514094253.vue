@@ -12,7 +12,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, watch } from 'vue'
-import useClickOutside from '@/hooks/useClickOutside'
+import useClickOutside from '../hooks/useClickOutside'
 export default defineComponent({
   name: 'DropDown',
   props: {
@@ -31,7 +31,7 @@ export default defineComponent({
     watch(isClickOutside, () => {
       if (isOpen.value && isClickOutside.value) {
         isOpen.value = false
-      }
+    }
     })
     return {
       isOpen,
