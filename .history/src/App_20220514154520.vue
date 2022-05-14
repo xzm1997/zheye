@@ -1,10 +1,6 @@
 <template>
   <div class="container">
     <global-header :user="currentUser"></global-header>
-    <div class="mb-3">
-      <label class="form-label">邮箱地址</label>
-      <validate-input :rules="emailRules"></validate-input>
-    </div>
     <form>
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -78,10 +74,6 @@ export default defineComponent({
     ValidateInput
   },
   setup () {
-    const emailRules: RulesProp = [
-      { type: 'required', message: '电子邮箱地址不能为空' },
-      { type: 'email', message: '请输入正确的电子邮箱格式' }
-    ]
     const emailRef = reactive({
       val: '',
       error: false,
@@ -100,8 +92,7 @@ export default defineComponent({
       list: testData,
       currentUser,
       emailRef,
-      validateEmail,
-      emailRules
+      validateEmail
     }
   }
 })

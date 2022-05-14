@@ -1,10 +1,6 @@
 <template>
   <div class="container">
     <global-header :user="currentUser"></global-header>
-    <div class="mb-3">
-      <label class="form-label">邮箱地址</label>
-      <validate-input :rules="emailRules"></validate-input>
-    </div>
     <form>
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Email address</label>

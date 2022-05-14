@@ -1,10 +1,6 @@
 <template>
   <div class="container">
     <global-header :user="currentUser"></global-header>
-    <div class="mb-3">
-      <label class="form-label">邮箱地址</label>
-      <validate-input :rules="emailRules"></validate-input>
-    </div>
     <form>
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -35,7 +31,7 @@
 import { defineComponent, reactive } from 'vue'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import ColumnList, { ColumnProps } from './components/ColumnList.vue'
-import ValidateInput, { RulesProp } from './components/ValidateInput.vue'
+import ValidateInput, { RuleProp } from './components/ValidateInput.vue'
 import GlobalHeader, { UserProps } from './components/GlobalHeader.vue'
 
 const currentUser: UserProps = {
