@@ -3,7 +3,15 @@
     <global-header :user="currentUser"></global-header>
     <div class="mb-3">
       <label class="form-label">邮箱地址</label>
-      <validate-input :rules="emailRules" v-model="emailVal"></validate-input>
+      <validate-input :rules="emailRules" v-model="emailVal">{{emailVal}}<Dropdown>
+        <Button type="primary">
+          下拉菜单
+          <Icon type="ios-arrow-down"></Icon>
+        </Button>
+        <DropdownMenu slot="list">
+          <DropdownItem>驴打滚</DropdownItem>
+        </DropdownMenu>
+      </Dropdown></validate-input>
       {{emailVal}}
     </div>
     <form>

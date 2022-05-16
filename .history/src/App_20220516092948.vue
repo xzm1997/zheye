@@ -3,7 +3,7 @@
     <global-header :user="currentUser"></global-header>
     <div class="mb-3">
       <label class="form-label">邮箱地址</label>
-      <validate-input :rules="emailRules" v-model="emailVal"></validate-input>
+      <validate-input :rules="emailRules" v-model="emailVal">{{emailVal}}d</validate-input>
       {{emailVal}}
     </div>
     <form>

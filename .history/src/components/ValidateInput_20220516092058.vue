@@ -24,16 +24,14 @@ export default defineComponent({
     rules: Array as PropType<RulesProp>,
     moduleValue: String
   },
-  setup (props, context) {
+  setup (props) {
     const inputRef = reactive({
       val: props.moduleValue || '',
       error: false,
       message: ''
     })
-    const updateValue = (e: KeyboardEvent) => {
-      const targetValue = (e.target as HTMLInputElement).value
-      inputRef.val = targetValue
-      context.emit('update:modelValue', targetValue)
+    const updateValue = () => {
+      
     }
     const validateInput = () => {
       if (props.rules) {
@@ -57,8 +55,7 @@ export default defineComponent({
     }
     return {
       inputRef,
-      validateInput,
-      updateValue
+      validateInput
     }
   }
 })

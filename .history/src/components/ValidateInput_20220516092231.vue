@@ -24,7 +24,7 @@ export default defineComponent({
     rules: Array as PropType<RulesProp>,
     moduleValue: String
   },
-  setup (props, context) {
+  setup (props) {
     const inputRef = reactive({
       val: props.moduleValue || '',
       error: false,
@@ -57,8 +57,7 @@ export default defineComponent({
     }
     return {
       inputRef,
-      validateInput,
-      updateValue
+      validateInput
     }
   }
 })

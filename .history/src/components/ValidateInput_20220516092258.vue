@@ -57,8 +57,7 @@ export default defineComponent({
     }
     return {
       inputRef,
-      validateInput,
-      updateValue
+      validateInput
     }
   }
 })

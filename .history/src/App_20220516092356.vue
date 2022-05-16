@@ -3,8 +3,7 @@
     <global-header :user="currentUser"></global-header>
     <div class="mb-3">
       <label class="form-label">邮箱地址</label>
-      <validate-input :rules="emailRules" v-model="emailVal"></validate-input>
-      {{emailVal}}
+      <validate-input :rules="emailRules"></validate-input>
     </div>
     <form>
       <div class="mb-3">
@@ -79,7 +78,7 @@ export default defineComponent({
     ValidateInput
   },
   setup () {
-    const emailVal = ref('viking')
+    const 
     const emailRules: RulesProp = [
       { type: 'required', message: '电子邮箱地址不能为空' },
       { type: 'email', message: '请输入正确的电子邮箱格式' }
@@ -103,8 +102,7 @@ export default defineComponent({
       currentUser,
       emailRef,
       validateEmail,
-      emailRules,
-      emailVal
+      emailRules
     }
   }
 })
