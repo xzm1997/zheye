@@ -9,7 +9,6 @@
           v-model="emailVal"
           placeholder="请输入邮箱地址"
           type="text"
-          ref="inputRef"
         />
       </div>
       <div class="mb-3">
@@ -101,12 +100,12 @@ export default defineComponent({
   },
   setup () {
     const inputRef = ref<any>()
-    const emailVal = ref('123.com')
+    const emailVal = ref('viking')
     const emailRules: RulesProp = [
       { type: 'required', message: '电子邮箱地址不能为空' },
       { type: 'email', message: '请输入正确的电子邮箱格式' }
     ]
-    const passwordVal = ref('123')
+    const passwordVal = ref('')
     const passwordRules: RulesProp = [
       { type: 'required', message: '密码不能为空' }
     ]
@@ -125,7 +124,7 @@ export default defineComponent({
       }
     }
     const onFormSubmit = (result: boolean) => {
-      console.log(result)
+      console.log(inputRef.value.validateInput)
     }
     return {
       list: testData,
@@ -136,8 +135,7 @@ export default defineComponent({
       emailVal,
       passwordVal,
       passwordRules,
-      onFormSubmit,
-      inputRef
+      onFormSubmit
     }
   }
 })

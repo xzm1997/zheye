@@ -61,9 +61,7 @@ export default defineComponent({
       }
       return true
     }
-    onMounted(() => {
-      emitter.emit('form-item-created', validateInput)
-    })
+    onMounted(() => {})
     return {
       inputRef,
       validateInput,
