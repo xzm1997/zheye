@@ -9,14 +9,11 @@
           v-model="emailVal"
           placeholder="请输入邮箱地址"
           type="text"
-        />
+        ></validate-input>
       </div>
       <div class="mb-3">
         <label class="form-label">密码</label>
-        <validate-input
-          type="password"
-          placeholder="请输入密码"
-        />
+        <validate-input type="password" :rules="passwordRules" v-model="passwordVal"></validate-input>
       </div>
     </form>
     <!-- <form>

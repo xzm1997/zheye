@@ -15,7 +15,8 @@
         <label class="form-label">密码</label>
         <validate-input
           type="password"
-          placeholder="请输入密码"
+          :rules="passwordRules"
+          v-model="passwordVal"
         />
       </div>
     </form>

@@ -1,24 +1,17 @@
 <template>
   <div class="container">
     <global-header :user="currentUser"></global-header>
-    <form action="">
-      <div class="mb-3">
-        <label class="form-label">邮箱地址</label>
-        <validate-input
-          :rules="emailRules"
-          v-model="emailVal"
-          placeholder="请输入邮箱地址"
-          type="text"
-        />
-      </div>
-      <div class="mb-3">
-        <label class="form-label">密码</label>
-        <validate-input
-          type="password"
-          placeholder="请输入密码"
-        />
-      </div>
-    </form>
+    <form action="></form>
+    <div class="mb-3">
+      <label class="form-label">邮箱地址</label>
+      <validate-input
+        :rules="emailRules"
+        v-model="emailVal"
+        placeholder="请输入邮箱地址"
+        type="text"
+      ></validate-input>
+      {{emailVal}}
+    </div>
     <!-- <form>
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Email address</label>

@@ -6,7 +6,7 @@
       :value="inputRef.val"
       @blur="validateInput"
       @input="updateValue"
-      v-bind="$attrs"
+      v-bind:"$attrs"
     >
     <span v-if="inputRef.error" class="invalid-feedback">{{inputRef.message}}</span>
   </div>
@@ -27,7 +27,6 @@ export default defineComponent({
   },
   inheritAttrs: false,
   setup (props, context) {
-    console.log(context.attrs)
     const inputRef = reactive({
       val: props.moduleValue || '',
       error: false,
