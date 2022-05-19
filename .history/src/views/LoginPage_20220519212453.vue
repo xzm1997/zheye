@@ -68,9 +68,7 @@ export default defineComponent({
     }
     const onFormSubmit = (result: boolean) => {
       console.log(result)
-      if (result) {
-        router.push({ name: 'column', params: { id: 1 } })
-      }
+      if
     }
     return {
       emailRef,

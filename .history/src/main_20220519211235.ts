@@ -20,7 +20,7 @@ const router = createRouter({
       component: LogIn
     },
     {
-      path: '/column/:id',
+      path: '/column',
       name: 'column',
       component: ColumnDetail
     }

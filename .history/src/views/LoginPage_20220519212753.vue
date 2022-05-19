@@ -69,7 +69,7 @@ export default defineComponent({
     const onFormSubmit = (result: boolean) => {
       console.log(result)
       if (result) {
-        router.push({ name: 'column', params: { id: 1 } })
+        router.push('`/column/1`')
       }
     }
     return {
