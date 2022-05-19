@@ -37,7 +37,8 @@ export default defineComponent({
       type: Object as PropType<UserProps>,
       required: true
     }
-  }
+  },
+  setup:
 })
 </script>
 

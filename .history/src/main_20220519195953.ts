@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
-import HomePage from './views/HomePage.vue'
-import LogIn from './views/LoginPage.vue'
+import Home from './views/Home.vue'
+import Login from './views/Login.vue'
 import App from './App.vue'
 
 const routerHistory = createWebHistory()
@@ -11,15 +11,16 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomePage
+      component: Home
     },
     {
       path: '/login',
       name: 'login',
-      component: LogIn
+      component: Login
     }
   ]
 })
 const app = createApp(App)
 app.use(router)
 app.mount('#app')
+// createApp(App).mount('#app')

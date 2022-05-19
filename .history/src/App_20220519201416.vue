@@ -48,7 +48,7 @@
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form> -->
-    <column-list :list="list" v-show="false"></column-list>
+    <column-list :list="list" v-show="true"></column-list>
     <footer class="text-center py-4 text-secondary bg-light mt-6">
       <small>
         <ul class="list-inline mb-0">
@@ -106,7 +106,7 @@ const testData: ColumnProps[] = [
 export default defineComponent({
   name: 'App',
   components: {
-    // ColumnList,
+    ColumnList,
     GlobalHeader
     // ValidateInput,
     // ValidateForm

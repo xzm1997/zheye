@@ -48,7 +48,7 @@
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form> -->
-    <column-list :list="list" v-show="false"></column-list>
+    <column-list :list="list" v-show="true"></column-list>
     <footer class="text-center py-4 text-secondary bg-light mt-6">
       <small>
         <ul class="list-inline mb-0">
@@ -106,7 +106,7 @@ const testData: ColumnProps[] = [
 export default defineComponent({
   name: 'App',
   components: {
-    // ColumnList,
+    ColumnList,
     GlobalHeader
     // ValidateInput,
     // ValidateForm
@@ -122,28 +122,28 @@ export default defineComponent({
     // const passwordRules: RulesProp = [
     //   { type: 'required', message: '密码不能为空' }
     // ]
-    // const emailRef = reactive({
-    //   val: '',
-    //   error: false,
-    //   message: ''
-    // })
-    // const validateEmail = () => {
-    //   if (emailRef.val.trim() === '') {
-    //     emailRef.error = true
-    //     emailRef.message = 'Cannot be empty'
-    //   } else if (!emailReg.test(emailRef.val)) {
-    //     emailRef.error = true
-    //     emailRef.message = 'Should be valid email'
-    //   }
-    // }
-    // const onFormSubmit = (result: boolean) => {
-    //   console.log(result)
-    // }
+    const emailRef = reactive({
+      val: '',
+      error: false,
+      message: ''
+    })
+    const validateEmail = () => {
+      if (emailRef.val.trim() === '') {
+        emailRef.error = true
+        emailRef.message = 'Cannot be empty'
+      } else if (!emailReg.test(emailRef.val)) {
+        emailRef.error = true
+        emailRef.message = 'Should be valid email'
+      }
+    }
+    const onFormSubmit = (result: boolean) => {
+      console.log(result)
+    }
     return {
       list: testData,
-      currentUser
-      // emailRef,
-      // validateEmail
+      currentUser,
+      emailRef,
+      validateEmail
       // emailRules,
       // emailVal,
       // passwordVal,
