@@ -37,6 +37,14 @@ export default defineComponent({
   setup () {
     return {
       currentUser
+      // emailRef,
+      // validateEmail
+      // emailRules,
+      // emailVal,
+      // passwordVal,
+      // passwordRules,
+      // onFormSubmit,
+      // inputRef
     }
   }
 })

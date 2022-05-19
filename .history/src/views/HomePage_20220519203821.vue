@@ -38,7 +38,7 @@ const testData: ColumnProps[] = [
 
 export default defineComponent({
   name: 'HomePage',
-  components: {
+  ColumnList: {
     ColumnList
   },
   setup () {
