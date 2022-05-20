@@ -1,7 +1,10 @@
+import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
+import { createStore } from 'vuex'
 import HomePage from './views/HomePage.vue'
 import LogIn from './views/LoginPage.vue'
 import ColumnDetail from './views/ColumnDetail.vue'
+import App from './App.vue'
 
 const routerHistory = createWebHistory()
 const router = createRouter({
@@ -24,5 +27,6 @@ const router = createRouter({
     }
   ]
 })
-
-export default router
+const app = createApp(App)
+app.use(router)
+app.mount('#app')

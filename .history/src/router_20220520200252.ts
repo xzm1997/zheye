@@ -1,7 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomePage from './views/HomePage.vue'
-import LogIn from './views/LoginPage.vue'
-import ColumnDetail from './views/ColumnDetail.vue'
 
 const routerHistory = createWebHistory()
 const router = createRouter({
@@ -24,5 +21,3 @@ const router = createRouter({
     }
   ]
 })
-
-export default router

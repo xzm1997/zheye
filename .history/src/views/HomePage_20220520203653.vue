@@ -10,6 +10,7 @@ import { useStore } from 'vuex'
 import { GlobalDataProps } from '../store'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import ColumnList from '../components/ColumnList.vue'
+import { testData } from '../testData'
 
 export default defineComponent({
   name: 'HomePage',
@@ -18,9 +19,9 @@ export default defineComponent({
   },
   setup () {
     const store = useStore<GlobalDataProps>()
-    const list = computed(() => store.state.columns)
+    con
     return {
-      list
+      list: testData
     }
   }
 })

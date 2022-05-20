@@ -71,7 +71,6 @@ export default defineComponent({
     const onFormSubmit = (result: boolean) => {
       if (result) {
         router.push('/')
-        store.commit('login')
       }
     }
     return {

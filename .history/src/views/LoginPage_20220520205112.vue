@@ -29,7 +29,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive, ref } from 'vue'
-import { useStore } from 'vuex'
+import {  } from 'vuex'
 import { useRouter } from 'vue-router'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import ValidateForm from '../components/ValidateForm.vue'
@@ -45,7 +45,6 @@ export default defineComponent({
     const inputRef = ref<any>()
     const emailVal = ref('')
     const router = useRouter()
-    const store = useStore()
     const emailRules: RulesProp = [
       { type: 'required', message: '电子邮箱地址不能为空' },
       { type: 'email', message: '请输入正确的电子邮箱格式' }
@@ -71,7 +70,6 @@ export default defineComponent({
     const onFormSubmit = (result: boolean) => {
       if (result) {
         router.push('/')
-        store.commit('login')
       }
     }
     return {

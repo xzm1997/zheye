@@ -7,22 +7,11 @@ interface UserProps {
   id?: number;
 }
 
-export interface GlobalDataProps {
-  columns: ColumnProps[];
-  posts: PostProps[];
-  user: UserProps;
-}
-
-const store = createStore<GlobalDataProps>({
+const store = createStore({
   state: {
     columns: testData,
     posts: testPosts,
     user: { isLogin: false }
-  },
-  mutations: {
-    login (state) {
-      state.user = { ...state.user, isLogin: true, name: 'viking' }
-    }
   }
 })
 
