@@ -14,10 +14,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
+import { defineComponent } from 'vue'
 import { useRoute } from 'vue-router'
 import { useStore } from 'vuex'
-// import { testData, testPosts } from '../testData'
+import { testData, testPosts } from '../testData'
 import PostList from '../components/PostList.vue'
 import { GlobalDataProps } from '@/store'
 export default defineComponent({
@@ -28,8 +28,8 @@ export default defineComponent({
     const route = useRoute()
     const store = useStore<GlobalDataProps>()
     const currentId = +route.params.id
-    const column = computed(() => store.state.columns.find(c => c.id === currentId))
-    const list = computed(() => store.state.posts.filter(post => post.columnId === currentId))
+    const column = computed(() =>store.state.columns.find(c => c.id === currentId))
+    const list = testPosts.filter(post => post.columnId === currentId)
     return {
       column,
       list

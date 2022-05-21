@@ -5,9 +5,6 @@
         <div class="col-lg-6 col-md-8 mx-auto">
           <img src="../assets/callout.svg" alt="callout" class="w-50"/>
           <h2 class="font-weight-light">随心所欲，自由表达</h2>
-          <p>
-            <a href="#" class="btn btn-primary my-2">开始写文章</a>
-          </p>
         </div>
       </div>
     </section>
@@ -30,7 +27,7 @@ export default defineComponent({
   setup () {
     const store = useStore<GlobalDataProps>()
     const list = computed(() => store.state.columns)
-    const biggerColumnLen = computed(() => store.getters.biggerColumnsLen)
+    const biggerColumnLen = computed(() => store.state.columns.filter(c => c.id > 2).length)
     return {
       list,
       biggerColumnLen

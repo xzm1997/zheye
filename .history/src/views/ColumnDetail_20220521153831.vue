@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
+import { defineComponent, computed, filter } from 'vue'
 import { useRoute } from 'vue-router'
 import { useStore } from 'vuex'
 // import { testData, testPosts } from '../testData'
@@ -29,7 +29,7 @@ export default defineComponent({
     const store = useStore<GlobalDataProps>()
     const currentId = +route.params.id
     const column = computed(() => store.state.columns.find(c => c.id === currentId))
-    const list = computed(() => store.state.posts.filter(post => post.columnId === currentId))
+    const list = computed(() => store.state.filter(post => post.columnId === currentId))
     return {
       column,
       list

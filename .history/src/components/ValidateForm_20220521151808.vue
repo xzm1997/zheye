@@ -20,7 +20,7 @@ export default defineComponent({
     let funcArr: ValidateFunc[] = []
     const submitForm = () => {
       const result = funcArr.map(func => func())
-      // TODO: 原课程直接返回result，接收为boolean类型，导致验证被跳过
+      // TODO: 原课程直接返回result，接收为boolean类型，导致验被跳过
       context.emit('form-submit', result[0] && result[1])
     }
     const callback = (func: ValidateFunc) => {

@@ -25,8 +25,8 @@ const store = createStore<GlobalDataProps>({
     }
   },
   getters: {
-    biggerColumnsLen (state) {
-      return state.columns.filter(c => c.id > 2).length
+    biggerColumnsLen(state) {
+      return state.columns
     }
   }
 })

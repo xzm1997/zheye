@@ -29,7 +29,7 @@ export default defineComponent({
     const store = useStore<GlobalDataProps>()
     const currentId = +route.params.id
     const column = computed(() => store.state.columns.find(c => c.id === currentId))
-    const list = computed(() => store.state.posts.filter(post => post.columnId === currentId))
+    const list = testPosts.filter(post => post.columnId === currentId)
     return {
       column,
       list

@@ -24,11 +24,7 @@ const store = createStore<GlobalDataProps>({
       state.user = { ...state.user, isLogin: true, name: 'viking' }
     }
   },
-  getters: {
-    biggerColumnsLen (state) {
-      return state.columns.filter(c => c.id > 2).length
-    }
-  }
+  getters
 })
 
 export default store
