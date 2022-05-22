@@ -53,8 +53,6 @@ export default defineComponent({
       console.log(result)
     }
     return {
-      store,
-      router,
       titleVal,
       titleRules,
       contentVal,

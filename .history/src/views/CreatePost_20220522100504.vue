@@ -40,8 +40,6 @@ export default defineComponent({
   },
   setup () {
     const titleVal = ref('')
-    const store = useStore()
-    const router = useRouter()
     const titleRules: RulesProp = [
       { type: 'required', message: '文章标题不能为空' }
     ]
@@ -53,8 +51,6 @@ export default defineComponent({
       console.log(result)
     }
     return {
-      store,
-      router,
       titleVal,
       titleRules,
       contentVal,
