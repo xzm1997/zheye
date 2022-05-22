@@ -17,7 +17,6 @@
       @blur="validateInput"
       @input="updateValue"
       v-bind="$attrs"
-    ></textarea>
     <span v-if="inputRef.error" class="invalid-feedback">{{inputRef.message}}</span>
   </div>
 </template>

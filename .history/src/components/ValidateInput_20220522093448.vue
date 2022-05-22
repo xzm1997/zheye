@@ -9,15 +9,6 @@
       @input="updateValue"
       v-bind="$attrs"
     >
-    <textarea
-      v-else
-      class="form-control"
-      :class="{'is-invalid': inputRef.error}"
-      :value="inputRef.val"
-      @blur="validateInput"
-      @input="updateValue"
-      v-bind="$attrs"
-    ></textarea>
     <span v-if="inputRef.error" class="invalid-feedback">{{inputRef.message}}</span>
   </div>
 </template>

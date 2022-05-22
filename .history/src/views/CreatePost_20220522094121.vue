@@ -29,9 +29,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
-import { GlobalDataProps, PostProps } from '../store'
 import ValidateInput, { RulesProp } from '../components/ValidateInput.vue'
 import ValidateForm from '../components/ValidateForm.vue'
 export default defineComponent({
@@ -41,8 +39,6 @@ export default defineComponent({
   },
   setup () {
     const titleVal = ref('')
-    const router = useRouter()
-    const store = useStore<GlobalDataProps>()
     const titleRules: RulesProp = [
       { type: 'required', message: '文章标题不能为空' }
     ]
@@ -51,24 +47,9 @@ export default defineComponent({
       { type: 'required', message: '文章详情不能为空' }
     ]
     const onFormSubmit = (result: boolean) => {
-      if (result) {
-        const { columnId } = store.state.user
-        if (columnId) {
-          const newPost: PostProps = {
-            id: new Date().getTime(),
-            title: titleVal.value,
-            content: contentVal.value,
-            columnId,
-            createdAt: new Date().toLocaleString()
-          }
-          store.commit('createPost', newPost)
-          router.push({ name: 'column', params: { id: columnId } })
-        }
-      }
+      console.log(result)
     }
     return {
-      router,
-      store,
       titleVal,
       titleRules,
       contentVal,

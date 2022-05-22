@@ -61,8 +61,6 @@ export default defineComponent({
             columnId,
             createdAt: new Date().toLocaleString()
           }
-          store.commit('createPost', newPost)
-          router.push({ name: 'column', params: { id: columnId } })
         }
       }
     }

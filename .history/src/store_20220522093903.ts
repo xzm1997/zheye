@@ -1,20 +1,11 @@
 import { createStore } from 'vuex'
-import { testData, testPosts, ColumnProps } from './testData'
+import { testData, testPosts, ColumnProps, PostProps } from './testData'
 
 interface UserProps {
   isLogin: boolean;
   name?: string;
   id?: number;
   columnId?: number;
-}
-
-export interface PostProps {
-  id: number;
-  title: string;
-  content: string;
-  image?: string;
-  createdAt: string;
-  columnId: number;
 }
 
 export interface GlobalDataProps {
@@ -33,9 +24,7 @@ const store = createStore<GlobalDataProps>({
     login (state) {
       state.user = { ...state.user, isLogin: true, name: 'viking' }
     },
-    createPost (state, newPost) {
-      state.posts.push(newPost)
-    }
+    cre
   },
   getters: {
     biggerColumnsLen (state) {

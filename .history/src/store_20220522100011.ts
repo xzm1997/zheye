@@ -1,5 +1,5 @@
 import { createStore } from 'vuex'
-import { testData, testPosts, ColumnProps } from './testData'
+import { testData, testPosts, ColumnProps, PostProps } from './testData'
 
 interface UserProps {
   isLogin: boolean;
@@ -9,12 +9,7 @@ interface UserProps {
 }
 
 export interface PostProps {
-  id: number;
-  title: string;
-  content: string;
-  image?: string;
-  createdAt: string;
-  columnId: number;
+  
 }
 
 export interface GlobalDataProps {
