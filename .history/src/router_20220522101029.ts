@@ -3,7 +3,6 @@ import HomePage from './views/HomePage.vue'
 import LogIn from './views/LoginPage.vue'
 import ColumnDetail from './views/ColumnDetail.vue'
 import CreatePost from './views/CreatePost.vue'
-import store from './store'
 
 const routerHistory = createWebHistory()
 const router = createRouter({
@@ -27,17 +26,12 @@ const router = createRouter({
     {
       path: '/create',
       name: 'create',
-      component: CreatePost,
-      meta: { requiredLogin: true }
+      component: CreatePost
     }
   ]
 })
 router.beforeEach((to, from, next) => {
-  if (to.meta.requiredLogin && !store.state.user.isLogin) {
-    next({ name: 'login' })
-  } else {
-    next()
-  }
+  console.log('to', to)
 })
 
 export default router

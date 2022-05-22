@@ -1,7 +1,7 @@
 <template>
   <div class="validate-input-container pb-3">
     <input
-      v-if="tag!=='textarea'"
+      v-if="tag !== 'textarea'"
       class="form-control"
       :class="{'is-invalid': inputRef.error}"
       :value="inputRef.val"

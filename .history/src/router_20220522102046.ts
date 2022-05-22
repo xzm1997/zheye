@@ -33,7 +33,7 @@ const router = createRouter({
   ]
 })
 router.beforeEach((to, from, next) => {
-  if (to.meta.requiredLogin && !store.state.user.isLogin) {
+  if (to.name !== 'login' && !store.state.user.isLogin) {
     next({ name: 'login' })
   } else {
     next()

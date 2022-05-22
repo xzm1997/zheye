@@ -27,17 +27,14 @@ const router = createRouter({
     {
       path: '/create',
       name: 'create',
-      component: CreatePost,
-      meta: { requiredLogin: true }
+      component: CreatePost
     }
   ]
 })
 router.beforeEach((to, from, next) => {
-  if (to.meta.requiredLogin && !store.state.user.isLogin) {
-    next({ name: 'login' })
-  } else {
-    next()
-  }
+  console.log('to', to)
+  console.log('from', from)
+  next()
 })
 
 export default router
