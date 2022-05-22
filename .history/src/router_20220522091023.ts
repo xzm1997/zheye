@@ -26,7 +26,7 @@ const router = createRouter({
     {
       path: '/create',
       name: 'create',
-      component: CreatePost
+      component
     }
   ]
 })
