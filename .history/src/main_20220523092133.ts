@@ -5,7 +5,7 @@ import store from './store'
 
 import App from './App.vue'
 
-axios.get('http://api.imooc.com/api/columns?icode=C6A6C4086133360B').then(resp => {
+axios.get('http://api.imooc.com/api/columns?icode={').then(resp => {
   console.log(resp.data)
 })
 
