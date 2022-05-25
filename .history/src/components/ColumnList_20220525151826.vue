@@ -5,7 +5,7 @@
       <div class="card h-100 shadow-sm">
         <div class="card-body text-center">
           <img :src="column.avatar && column.avatar.url"
-            class="rounded-circle border border-light my-3"
+            class="rounded-circle border border-light w-25 my-3"
             alt="column.title">
           <h5 class="card-title">{{column.title}}</h5>
           <p class="card-text text-left">{{column.description}}.</p>
@@ -36,9 +36,9 @@ export default defineComponent({
         if (!column.avatar) {
           column.avatar = {
             url: require('../assets/logo.png')
+          } else {
+            column.avatar.url += '?x-oss-process=image/resize,m_pad,h_50,w_50' 
           }
-        } else {
-          column.avatar.url = column.avatar.url + '?x-oss-process=image/resize,m_pad,h_50,w_50'
         }
         return column
       })
@@ -50,9 +50,6 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-  .card-body img {
-    width: 50px;
-    height: 50px;
-  }
+<style>
+
 </style>

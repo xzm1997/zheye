@@ -1,6 +1,6 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
-import { testPosts } from './testData'
+import { testData, testPosts } from './testData'
 
 interface UserProps {
   isLogin: boolean;
@@ -40,7 +40,7 @@ export interface GlobalDataProps {
 const store = createStore<GlobalDataProps>({
   state: {
     columns: [],
-    posts: testPosts,
+    posts: [],
     user: { isLogin: false, name: 'viking', columnId: 1 }
   },
   mutations: {

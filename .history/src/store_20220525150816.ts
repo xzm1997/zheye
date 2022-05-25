@@ -1,6 +1,6 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
-import { testPosts } from './testData'
+import { testData, testPosts, ColumnProps } from './testData'
 
 interface UserProps {
   isLogin: boolean;
@@ -10,16 +10,7 @@ interface UserProps {
 }
 
 interface ImageProps {
-  _id?: string;
-  url?: string;
-  createdAt?: string;
-}
-
-export interface ColumnProps {
-  _id: string;
-  title: string;
-  avatar?: ImageProps;
-  description: string;
+  _id?:
 }
 
 export interface PostProps {
@@ -39,7 +30,7 @@ export interface GlobalDataProps {
 
 const store = createStore<GlobalDataProps>({
   state: {
-    columns: [],
+    columns: testData,
     posts: testPosts,
     user: { isLogin: false, name: 'viking', columnId: 1 }
   },
@@ -62,12 +53,12 @@ const store = createStore<GlobalDataProps>({
     }
   },
   getters: {
-    // biggerColumnsLen (state) {
-    //   return state.columns.filter(c => c.id > 2).length
-    // },
-    // getColumnById: (state) => (id: number) => {
-    //   return state.columns.find(c => c.id === id)
-    // },
+    biggerColumnsLen (state) {
+      return state.columns.filter(c => c.id > 2).length
+    },
+    getColumnById: (state) => (id: number) => {
+      return state.columns.find(c => c.id === id)
+    },
     getPostsByCid: (state) => (cid: number) => {
       return state.posts.filter(post => post.columnId === cid)
     }

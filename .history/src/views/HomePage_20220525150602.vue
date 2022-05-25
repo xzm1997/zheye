@@ -30,7 +30,7 @@ export default defineComponent({
   setup () {
     const store = useStore<GlobalDataProps>()
     onMounted(() => {
-      store.dispatch('fetchColumns')
+      store.dispatch(fetch)
     })
     const list = computed(() => store.state.columns)
     const biggerColumnLen = computed(() => store.getters.biggerColumnsLen)

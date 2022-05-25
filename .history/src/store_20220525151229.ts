@@ -1,6 +1,6 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
-import { testPosts } from './testData'
+import { testData, testPosts } from './testData'
 
 interface UserProps {
   isLogin: boolean;
