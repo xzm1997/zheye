@@ -82,8 +82,7 @@ const store = createStore<GlobalDataProps>({
       return state.columns.find(c => c._id === id)
     },
     getPostsByCid: (state) => (cid: string) => {
-      return state.posts
-      // return state.posts.filter(post => post.column === cid)
+      return state.posts.filter(post => post.column === cid)
     }
   }
 })

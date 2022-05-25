@@ -7,7 +7,7 @@
           <div v-if="post.image" class="col-4">
             <img :src="post.image.url" :alt="post.title" class="rounded-lg w-100">
           </div>
-          <p :class="{'col-8': post.image}" class="text-muted">{{post.excerpt}}</p>
+          <p :class="{'col-8': post.image}" class="text-muted">{{post.content}}</p>
         </div>
         <span class="text-muted">{{post.createdAt}}</span>
       </div>

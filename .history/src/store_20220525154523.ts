@@ -52,12 +52,6 @@ const store = createStore<GlobalDataProps>({
     },
     fetchColumns (state, rawData) {
       state.columns = rawData.data.list
-    },
-    fetchColumn (state, rawData) {
-      state.columns = [rawData.data]
-    },
-    fetchPosts (state, rawData) {
-      state.posts = rawData.data.list
     }
   },
   actions: {
@@ -66,24 +60,19 @@ const store = createStore<GlobalDataProps>({
         context.commit('fetchColumns', resp.data)
       })
     },
-    fetchColumn ({ commit }, cid) {
-      axios.get(`/columns/${cid}`).then(resp => {
-        commit('fetchColumn', resp.data)
-      })
-    },
-    fetchPosts ({ commit }, cid) {
-      axios.get(`/columns/${cid}/posts`).then(resp => {
-        commit('fetchPosts', resp.data)
-      })
-    }
+    fetchColumns ({ commit }, cid {
+      axios.get
+    })
   },
   getters: {
-    getColumnById: (state) => (id: string) => {
-      return state.columns.find(c => c._id === id)
-    },
-    getPostsByCid: (state) => (cid: string) => {
-      return state.posts
-      // return state.posts.filter(post => post.column === cid)
+    // biggerColumnsLen (state) {
+    //   return state.columns.filter(c => c.id > 2).length
+    // },
+    // getColumnById: (state) => (id: number) => {
+    //   return state.columns.find(c => c.id === id)
+    // },
+    getPostsByCid: (state) => (cid: number) => {
+      return state.posts.filter(post => post.columnId === cid)
     }
   }
 })
