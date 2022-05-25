@@ -67,13 +67,15 @@ const store = createStore<GlobalDataProps>({
   },
   actions: {
     async fetchColumns ({ commit }) {
-      getAndCommit('/columns', 'fetchColumns', commit)
+      getAndCommit('/columns', 'fetchColumns', )
     },
     async fetchColumn ({ commit }, cid) {
-      getAndCommit(`/columns/${cid}`, 'fetchColumn', commit)
+      const { data } = await axios.get(`/columns/${cid}`)
+      commit('fetchColumn', data)
     },
     async fetchPosts ({ commit }, cid) {
-      getAndCommit(`/columns/${cid}/post`, 'fetchPosts', commit)
+      const { data } = await axios.get(`/columns/${cid}/posts`)
+      commit('fetchPosts', data)
     }
   },
   getters: {

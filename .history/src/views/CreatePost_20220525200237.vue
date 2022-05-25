@@ -58,7 +58,7 @@ export default defineComponent({
             _id: new Date().getTime().toString(),
             title: titleVal.value,
             content: contentVal.value,
-            column: columnId.toString(),
+            // columnId,
             createdAt: new Date().toLocaleString()
           }
           store.commit('createPost', newPost)

@@ -55,10 +55,10 @@ export default defineComponent({
         const { columnId } = store.state.user
         if (columnId) {
           const newPost: PostProps = {
-            _id: new Date().getTime().toString(),
+            _id: new Date().getTime().toString,
             title: titleVal.value,
             content: contentVal.value,
-            column: columnId.toString(),
+            columnId,
             createdAt: new Date().toLocaleString()
           }
           store.commit('createPost', newPost)
