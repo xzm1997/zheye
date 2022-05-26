@@ -72,12 +72,10 @@ export default defineComponent({
       if (result) {
         const payload = {
           email: emailVal.value,
-          password: passwordVal.value
+          password
         }
-        store.dispatch('loginAndFetch', payload).then(data => {
-          console.log(data)
-          router.push('/')
-        })
+        router.push('/')
+        store.commit('login')
       }
     }
     return {

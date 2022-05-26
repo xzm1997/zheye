@@ -38,7 +38,7 @@ export default defineComponent({
     const token = computed(() => store.state.token)
     onMounted(() => {
       if (!currentUser.value.isLogin && token.value) {
-        axios.defaults.headers.common.Authorization = `Bearer ${token.value}`
+        axios.defaults.headers.common.Authorization = `Bearer ${token}`
         store.dispatch('fetchCurrentUser')
       }
     })

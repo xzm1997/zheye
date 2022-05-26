@@ -42,7 +42,7 @@ export interface GlobalDataProps {
 
 const getAndCommit = async (url: string, mutationName: string, commit: Commit) => {
   const { data } = await axios.get(url)
-  // console.log(data)
+  console.log(data)
   commit(mutationName, data)
 }
 
@@ -54,7 +54,7 @@ const postAndCommit = async (url: string, mutationName: string, commit: Commit, 
 
 const store = createStore<GlobalDataProps>({
   state: {
-    token: localStorage.getItem('token') || '',
+    token: localStorage.getItem('token'),
     loading: false,
     columns: [],
     posts: [],

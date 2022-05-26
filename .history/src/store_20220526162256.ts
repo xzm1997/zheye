@@ -3,7 +3,7 @@ import axios from 'axios'
 
 export interface UserProps {
   isLogin: boolean;
-  nickName?: string;
+  nikeName?: string;
   _id?: number;
   column?: string;
   email?: string;
@@ -42,7 +42,7 @@ export interface GlobalDataProps {
 
 const getAndCommit = async (url: string, mutationName: string, commit: Commit) => {
   const { data } = await axios.get(url)
-  // console.log(data)
+  console.log(data)
   commit(mutationName, data)
 }
 
@@ -54,7 +54,7 @@ const postAndCommit = async (url: string, mutationName: string, commit: Commit, 
 
 const store = createStore<GlobalDataProps>({
   state: {
-    token: localStorage.getItem('token') || '',
+    token: '',
     loading: false,
     columns: [],
     posts: [],
@@ -83,7 +83,6 @@ const store = createStore<GlobalDataProps>({
     login (state, rawData) {
       const { token } = rawData.data
       state.token = token
-      localStorage.setItem('token', token)
       axios.defaults.headers.common.Authorization = `Bearer ${token}`
     }
   },
