@@ -80,8 +80,9 @@ export default defineComponent({
           // console.log(data)
           createMessage('登录成功 2s后跳转首页', 'success')
           setTimeout(() => {
-            router.push('/')
-          }, 2000)
+            
+          })
+          router.push('/')
         }).catch(e => {
           console.log(e)
         })

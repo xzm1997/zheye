@@ -8,7 +8,7 @@ axios.defaults.baseURL = 'http://localhost:3001/api'
 axios.interceptors.request.use(config => {
   // console.log('request')
   store.commit('setLoading', true)
-  store.commit('setError', { status: false, message: '' })
+  store.commit('setError', { status: true, message: error })
   return config
 })
 
