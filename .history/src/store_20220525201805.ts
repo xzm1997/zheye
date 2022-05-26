@@ -67,7 +67,7 @@ const store = createStore<GlobalDataProps>({
       state.posts = rawData.data.list
     },
     setLoading (state, status) {
-      state.loading = status
+      
     }
   },
   actions: {

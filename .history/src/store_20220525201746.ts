@@ -66,9 +66,7 @@ const store = createStore<GlobalDataProps>({
     fetchPosts (state, rawData) {
       state.posts = rawData.data.list
     },
-    setLoading (state, status) {
-      state.loading = status
-    }
+    setLoading ()
   },
   actions: {
     async fetchColumns ({ commit }) {

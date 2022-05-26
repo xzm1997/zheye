@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <global-header :user="currentUser"></global-header>
-    <loader-icon v-if="isLoading"></loader-icon>
+    <h1 v-if="isLoading">正在读取:smile:</h1>
     <router-view></router-view>
     <footer class="text-center py-4 text-secondary bg-light mt-6">
       <small>
@@ -22,12 +22,11 @@ import { defineComponent, computed } from 'vue'
 import { useStore } from 'vuex'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import GlobalHeader from './components/GlobalHeader.vue'
-import LoaderIcon from './components/LoaderIcon.vue'
+
 export default defineComponent({
   name: 'App',
   components: {
-    GlobalHeader,
-    LoaderIcon
+    GlobalHeader
   },
   setup () {
     const store = useStore()

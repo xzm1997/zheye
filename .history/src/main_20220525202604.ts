@@ -11,7 +11,7 @@ axios.interceptors.request.use(config => {
 })
 
 axios.interceptors.response.use(config => {
-  store.commit('setLoading', false)
+  store.commit('setLoading', true)
   return config
 })
 const app = createApp(App)

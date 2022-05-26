@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <global-header :user="currentUser"></global-header>
-    <loader-icon v-if="isLoading"></loader-icon>
+    <loader-iconv-if="isLoading"></loader-iconv-if=>
     <router-view></router-view>
     <footer class="text-center py-4 text-secondary bg-light mt-6">
       <small>

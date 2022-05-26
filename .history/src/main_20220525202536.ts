@@ -10,10 +10,7 @@ axios.interceptors.request.use(config => {
   return config
 })
 
-axios.interceptors.response.use(config => {
-  store.commit('setLoading', false)
-  return config
-})
+axios.interceptors.response
 const app = createApp(App)
 app.use(router)
 app.use(store)
