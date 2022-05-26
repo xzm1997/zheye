@@ -44,12 +44,7 @@ export default defineComponent({
         store.dispatch('fetchCurrentUser')
       }
     })
-    watch(() => error.value.status, () => {
-      const { status, message } = error.value
-      if (status && message) {
-        createMessage(message, 'error')
-      }
-    })
+    watch
     return {
       currentUser,
       isLoading,

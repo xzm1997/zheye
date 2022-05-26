@@ -28,12 +28,6 @@ export default defineComponent({
   },
   setup () {
     useDOMCreate('back')
-    // const node = document.createElement('div')
-    // node.id = 'back'
-    // document.body.appendChild(node)
-    // onUnmounted(() => {
-    //   document.body.removeChild(node)
-    // })
   }
 })
 </script>

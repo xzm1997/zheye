@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent} from 'vue'
 import useDOMCreate from '../hooks/useDOMCreate'
 export default defineComponent({
   props: {
@@ -28,12 +28,6 @@ export default defineComponent({
   },
   setup () {
     useDOMCreate('back')
-    // const node = document.createElement('div')
-    // node.id = 'back'
-    // document.body.appendChild(node)
-    // onUnmounted(() => {
-    //   document.body.removeChild(node)
-    // })
   }
 })
 </script>

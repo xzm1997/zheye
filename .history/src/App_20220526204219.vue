@@ -18,14 +18,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, onMounted, watch } from 'vue'
+import { defineComponent, computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import GlobalHeader from './components/GlobalHeader.vue'
 import LoaderIcon from './components/LoaderIcon.vue'
 import { GlobalDataProps } from './store'
-import createMessage from './components/createMessage'
+import MessageOut from './components/MessageOut.vue'
+import CreateMessage from './'
 export default defineComponent({
   name: 'App',
   components: {
@@ -42,12 +43,6 @@ export default defineComponent({
       if (!currentUser.value.isLogin && token.value) {
         axios.defaults.headers.common.Authorization = `Bearer ${token.value}`
         store.dispatch('fetchCurrentUser')
-      }
-    })
-    watch(() => error.value.status, () => {
-      const { status, message } = error.value
-      if (status && message) {
-        createMessage(message, 'error')
       }
     })
     return {
