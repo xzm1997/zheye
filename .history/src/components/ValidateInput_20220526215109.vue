@@ -29,7 +29,7 @@ const emailReg = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0
 interface RuleProp {
   type: 'required' | 'email' | 'custom';
   message: string;
-  validator?: () => boolean;
+  vali
 }
 export type RulesProp = RuleProp[]
 export type TagType = 'input' | 'textarea'
