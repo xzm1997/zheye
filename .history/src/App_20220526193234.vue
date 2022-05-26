@@ -1,7 +1,6 @@
 <template>
   <div class="container">
     <global-header :user="currentUser"></global-header>
-    <h1>{{error.message}}</h1>
     <loader-icon v-if="isLoading"></loader-icon>
     <router-view></router-view>
     <footer class="text-center py-4 text-secondary bg-light mt-6">
@@ -37,7 +36,7 @@ export default defineComponent({
     const currentUser = computed(() => store.state.user)
     const isLoading = computed(() => store.state.loading)
     const token = computed(() => store.state.token)
-    const error = computed(() => store.state.error)
+    const error = computed(() => store)
     onMounted(() => {
       if (!currentUser.value.isLogin && token.value) {
         axios.defaults.headers.common.Authorization = `Bearer ${token.value}`
@@ -46,8 +45,7 @@ export default defineComponent({
     })
     return {
       currentUser,
-      isLoading,
-      error
+      isLoading
     }
   }
 })

@@ -1,7 +1,6 @@
 <template>
   <div class="container">
     <global-header :user="currentUser"></global-header>
-    <h1>{{error.message}}</h1>
     <loader-icon v-if="isLoading"></loader-icon>
     <router-view></router-view>
     <footer class="text-center py-4 text-secondary bg-light mt-6">

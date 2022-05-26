@@ -6,21 +6,15 @@ import store from './store'
 import App from './App.vue'
 axios.defaults.baseURL = 'http://localhost:3001/api'
 axios.interceptors.request.use(config => {
-  // console.log('request')
   store.commit('setLoading', true)
   return config
 })
 
 axios.interceptors.response.use(config => {
   store.commit('setLoading', false)
-  // console.log('response')
   return config
 }, e => {
-  // console.log(e.response)
-  const { error } = e.response.data
-  store.commit('setError', { status: true, message: error })
-  store.commit('setLoading', false)
-  return Promise.reject(error)
+  
 })
 const app = createApp(App)
 app.use(router)

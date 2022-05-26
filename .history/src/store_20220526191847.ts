@@ -84,9 +84,9 @@ const store = createStore<GlobalDataProps>({
     setLoading (state, status) {
       state.loading = status
     },
-    setError (state, e: GlobalErrorProps) {
-      state.error = e
-    },
+    setError (state, e) {
+      
+    }
     CurrentUser (state, rawData) {
       state.user = { isLogin: true, ...rawData.data }
     },
