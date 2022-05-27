@@ -91,15 +91,6 @@ export default defineComponent({
           password: formData.password,
           nickName: formData.nickName
         }
-        axios.post('/users/', payload).then(data => {
-          createMessage('注册成功 正在跳转登陆页面', 'success')
-          setTimeout(() => {
-            router.push('/login')
-          }, 2000)
-        }).catch(e => {
-          console.log(e)
-          createMessage(e, 'error')
-        })
       }
     }
     return {

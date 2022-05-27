@@ -96,9 +96,6 @@ export default defineComponent({
           setTimeout(() => {
             router.push('/login')
           }, 2000)
-        }).catch(e => {
-          console.log(e)
-          createMessage(e, 'error')
         })
       }
     }

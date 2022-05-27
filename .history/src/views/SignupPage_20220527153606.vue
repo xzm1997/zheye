@@ -84,6 +84,24 @@ export default defineComponent({
         message: '密码不相同'
       }
     ]
+    const onFormSubmit = (result: boolean) => {
+      if (result) {
+        const payload = {
+          email: formData.email,
+          password: formData.password,
+          nickName: formData.nickName
+        }
+        store.dispatch('loginAndFetch', payload).then(data => {
+          // console.log(data)
+          createMessage('登录成功 2s后跳转首页', 'success')
+          setTimeout(() => {
+            router.push('/')
+          }, 2000)
+        }).catch(e => {
+          console.log(e)
+        })
+      }
+    }
     const onFormSubmit = async (result: boolean) => {
       if (result) {
         const payload = {
@@ -91,15 +109,6 @@ export default defineComponent({
           password: formData.password,
           nickName: formData.nickName
         }
-        axios.post('/users/', payload).then(data => {
-          createMessage('注册成功 正在跳转登陆页面', 'success')
-          setTimeout(() => {
-            router.push('/login')
-          }, 2000)
-        }).catch(e => {
-          console.log(e)
-          createMessage(e, 'error')
-        })
       }
     }
     return {

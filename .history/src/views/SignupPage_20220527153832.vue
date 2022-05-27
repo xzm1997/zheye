@@ -98,7 +98,7 @@ export default defineComponent({
           }, 2000)
         }).catch(e => {
           console.log(e)
-          createMessage(e, 'error')
+          createMessage('注册成功 正在跳转登陆页面', 'success')
         })
       }
     }

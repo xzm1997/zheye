@@ -36,7 +36,7 @@
         />
       </div>
       <template #submit>
-        <button type="submit" class="btn btn-primary btn-block btn-large">注册新用户</button>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Submit</button>
       </template>
     </validate-form>
   </div>
@@ -75,14 +75,8 @@ export default defineComponent({
       { type: 'required', message: '密码不能为空' }
     ]
     const repeatPasswordRules: RulesProp = [
-      { type: 'required', message: '重复密码不能为空' },
-      {
-        type: 'custom',
-        validator: () => {
-          return formData.password === formData.repeatPassword
-        },
-        message: '密码不相同'
-      }
+      { type: 'required', message: '重复密码不能为空' }
+      { type: 'custom', }
     ]
     const onFormSubmit = async (result: boolean) => {
       if (result) {
@@ -91,15 +85,6 @@ export default defineComponent({
           password: formData.password,
           nickName: formData.nickName
         }
-        axios.post('/users/', payload).then(data => {
-          createMessage('注册成功 正在跳转登陆页面', 'success')
-          setTimeout(() => {
-            router.push('/login')
-          }, 2000)
-        }).catch(e => {
-          console.log(e)
-          createMessage(e, 'error')
-        })
       }
     }
     return {

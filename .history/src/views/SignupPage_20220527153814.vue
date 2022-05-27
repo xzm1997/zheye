@@ -98,7 +98,6 @@ export default defineComponent({
           }, 2000)
         }).catch(e => {
           console.log(e)
-          createMessage(e, 'error')
         })
       }
     }
