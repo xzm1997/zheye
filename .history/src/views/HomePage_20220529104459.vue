@@ -8,7 +8,7 @@
           <p>
             <a href="#" class="btn btn-primary my-2">开始写文章</a>
           </p>
-          <up-loader action="/upload" :beforeUpload="beforeUpload" @file-uploaded="onFileUploaded"></up-loader>
+          <up-loader action="/upload" :beforeUpload="beforeUpload"></up-loader>
         </div>
       </div>
     </section>
@@ -45,14 +45,13 @@ export default defineComponent({
       return isJPG
     }
     const onFileUploaded = (rawData: ResponseType<ImageProps>) => {
-      createMessage(`上传图片ID ${rawData.data._id}`, 'success')
+      createMessage(`上传图片ID ${rawData.data._id}`, )
     }
     const biggerColumnLen = computed(() => store.getters.biggerColumnsLen)
     return {
       list,
       biggerColumnLen,
-      beforeUpload,
-      onFileUploaded
+      beforeUpload
     }
   }
 })

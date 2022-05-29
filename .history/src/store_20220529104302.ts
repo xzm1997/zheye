@@ -1,6 +1,6 @@
 import { createStore, Commit } from 'vuex'
 import axios from 'axios'
-export interface ResponseType<P = any> {
+export interface ResponseType<P = {}> {
   code: number;
   msg: string;
   data: P;

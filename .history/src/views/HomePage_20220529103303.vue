@@ -8,7 +8,7 @@
           <p>
             <a href="#" class="btn btn-primary my-2">开始写文章</a>
           </p>
-          <up-loader action="/upload" :beforeUpload="beforeUpload" @file-uploaded="onFileUploaded"></up-loader>
+          <up-loader :action="'/upload'"></up-loader>
         </div>
       </div>
     </section>
@@ -19,11 +19,11 @@
 <script lang="ts">
 import { defineComponent, computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
-import { GlobalDataProps, ResponseType, ImageProps } from '../store'
+import { GlobalDataProps } from '../store'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import ColumnList from '../components/ColumnList.vue'
 import UpLoader from '../components/UpLoader.vue'
-import createMessage from '../components/createMessage'
+import createMessage from '../components/createMessage.vue'
 
 export default defineComponent({
   name: 'HomePage',
@@ -40,19 +40,13 @@ export default defineComponent({
     const beforeUpload = (file: File) => {
       const isJPG = file.type === 'image/jpeg'
       if (!isJPG) {
-        createMessage('上传图片只能是JPG格式', 'error')
+        createMessage(’上传图片只能是JPG格式)
       }
-      return isJPG
-    }
-    const onFileUploaded = (rawData: ResponseType<ImageProps>) => {
-      createMessage(`上传图片ID ${rawData.data._id}`, 'success')
     }
     const biggerColumnLen = computed(() => store.getters.biggerColumnsLen)
     return {
       list,
-      biggerColumnLen,
-      beforeUpload,
-      onFileUploaded
+      biggerColumnLen
     }
   }
 })
