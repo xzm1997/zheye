@@ -1,7 +1,7 @@
 <template>
   <div class="create-post-page">
     <h4>新建文章</h4>
-    <input type="file" name="file" @change.prevent="handleFileChange" />
+    <input type="file" name="file" />
     <validate-form @form-submit="onFormSubmit">
       <div class="mb-3">
         <label class="form-label">文章标题：</label>
@@ -79,8 +79,6 @@ export default defineComponent({
           headers: {
             'Content-Type': 'multipart/form-data'
           }
-        }).then((resp: any) => {
-          console.log(resp)
         })
       }
     }
@@ -91,8 +89,7 @@ export default defineComponent({
       titleRules,
       contentVal,
       contentRules,
-      onFormSubmit,
-      handleFileChange
+      onFormSubmit
     }
   }
 })
