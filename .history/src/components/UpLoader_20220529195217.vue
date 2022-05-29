@@ -4,7 +4,7 @@
       <slot v-if="fileStatus === 'loading'" name="loading">
         <button class="btn btn-primary" disabled>正在上传...</button>
       </slot>
-      <slot v-else-if="fileStatus === 'success'" name="uploaded" :uploadedData="uploadedData">
+      <slot v-else-if="fileStatus === 'success'" name="uploaded">
         <button class="btn btn-primary" disabled>上传成功</button>
       </slot>
       <slot v-else name="default">
@@ -83,7 +83,6 @@ export default defineComponent({
       fileInput,
       triggerUpload,
       fileStatus,
-      uploadedData,
       handleFileChange
     }
   }

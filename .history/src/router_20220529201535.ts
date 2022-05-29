@@ -41,7 +41,7 @@ const router = createRouter({
   ]
 })
 router.beforeEach((to, from, next) => {
-  const { user, token } = store.state
+  const { user, token } = store
   const { requiredLogin, redirectAlreadyLogin } = to.meta
   if (!user.isLogin) {
     if (token) {
@@ -49,12 +49,10 @@ router.beforeEach((to, from, next) => {
       store.dispatch('fetchCurrentUser').then(() => {
         if (redirectAlreadyLogin) {
           next('/')
-        } else {
-          next()
         }
       }).catch(e => {
         console.error(e)
-        store.commit('logout')
+        localStorage.removeItem('token')
         next('login')
       })
     } else {

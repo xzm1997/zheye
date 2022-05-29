@@ -49,12 +49,10 @@ router.beforeEach((to, from, next) => {
       store.dispatch('fetchCurrentUser').then(() => {
         if (redirectAlreadyLogin) {
           next('/')
-        } else {
-          next()
         }
       }).catch(e => {
         console.error(e)
-        store.commit('logout')
+        localStorage.removeItem('token')
         next('login')
       })
     } else {

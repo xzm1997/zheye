@@ -100,25 +100,20 @@ const store = createStore<GlobalDataProps>({
       state.token = token
       localStorage.setItem('token', token)
       axios.defaults.headers.common.Authorization = `Bearer ${token}`
-    },
-    logout (state) {
-      state.token = ''
-      localStorage.remove('token')
-      delete axios.defaults.headers.common.Authorization
     }
   },
   actions: {
     fetchColumns ({ commit }) {
-      return getAndCommit('/columns', 'fetchColumns', commit)
+      getAndCommit('/columns', 'fetchColumns', commit)
     },
     fetchColumn ({ commit }, cid) {
-      return getAndCommit(`/columns/${cid}`, 'fetchColumn', commit)
+      getAndCommit(`/columns/${cid}`, 'fetchColumn', commit)
     },
     fetchPosts ({ commit }, cid) {
-      return getAndCommit(`/columns/${cid}/posts`, 'fetchPosts', commit)
+      getAndCommit(`/columns/${cid}/posts`, 'fetchPosts', commit)
     },
     fetchCurrentUser ({ commit }) {
-      return getAndCommit('/user/current', 'CurrentUser', commit)
+      getAndCommit('/user/current', 'CurrentUser', commit)
     },
     login ({ commit }, payload) {
       return postAndCommit('/user/login', 'login', commit, payload)

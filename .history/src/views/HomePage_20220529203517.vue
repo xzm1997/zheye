@@ -18,9 +18,10 @@
 <script lang="ts">
 import { defineComponent, computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
-import { GlobalDataProps } from '../store'
+import { GlobalDataProps, ResponseType, ImageProps } from '../store'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import ColumnList from '../components/ColumnList.vue'
+import createMessage from '../components/createMessage'
 
 export default defineComponent({
   name: 'HomePage',
