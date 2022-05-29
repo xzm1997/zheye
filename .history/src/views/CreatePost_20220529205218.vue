@@ -2,7 +2,7 @@
   <div class="create-post-page">
     <h4>新建文章</h4>
     <up-loader
-      action="/upload"
+      action="/uploader"
       class="d-flex align-items-center justify-content-center bg-light text-secondary w-100 my-4"
     >
       <h2>点击上传头图</h2>
@@ -120,10 +120,5 @@ export default defineComponent({
 .create-post-page .file-upload-container {
   height: 200px;
   cursor: pointer;
-}
-.create-post-page .file-upload-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 </style>

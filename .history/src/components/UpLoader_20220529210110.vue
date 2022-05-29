@@ -50,6 +50,7 @@ export default defineComponent({
       }
     }
     const handleFileChange = (e: Event) => {
+      uploadedData.clear()
       const currentTarget = e.target as HTMLInputElement
       if (currentTarget.files) {
         const files = Array.from(currentTarget.files)

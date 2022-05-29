@@ -2,21 +2,9 @@
   <div class="create-post-page">
     <h4>新建文章</h4>
     <up-loader
-      action="/upload"
-      class="d-flex align-items-center justify-content-center bg-light text-secondary w-100 my-4"
+      action="/uploader"
+      class="d-flex align-items-center justify-content-center bg-light text-secondary w-100 "
     >
-      <h2>点击上传头图</h2>
-      <template #loading>
-        <div class="d-flex">
-          <div class="spinner-border text-secondary" role="status">
-            <span class="sr-only">Loading...</span>
-          </div>
-          <h2>正在上传</h2>
-        </div>
-      </template>
-      <template #uploaded="dataProps">
-        <img :src="dataProps.uploadedData.data.url">
-      </template>
     </up-loader>
     <validate-form @form-submit="onFormSubmit">
       <div class="mb-3">
@@ -117,13 +105,5 @@ export default defineComponent({
 </script>
 
 <style>
-.create-post-page .file-upload-container {
-  height: 200px;
-  cursor: pointer;
-}
-.create-post-page .file-upload-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+
 </style>

@@ -124,6 +124,5 @@ export default defineComponent({
 .create-post-page .file-upload-container img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
 }
 </style>

@@ -123,7 +123,7 @@ export default defineComponent({
 }
 .create-post-page .file-upload-container img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 200px;
+  cursor: pointer;
 }
 </style>
