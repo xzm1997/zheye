@@ -72,7 +72,7 @@ const store = createStore<GlobalDataProps>({
     loading: false,
     columns: [],
     posts: [],
-    user: { _id: '', isLogin: false }
+    user: { _id:'', isLogin: false }
   },
   mutations: {
     createPost (state, newPost) {

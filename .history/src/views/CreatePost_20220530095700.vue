@@ -101,6 +101,8 @@ export default defineComponent({
               router.push({ name: 'column', params: { id: column } })
             }, 2000)
           })
+          store.commit('createPost', newPost)
+          router.push({ name: 'column', params: { id: column } })
         }
       }
     }

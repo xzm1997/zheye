@@ -93,14 +93,10 @@ export default defineComponent({
             author: _id
           }
           if (imageId) {
-            newPost.image = imageId
+            newPost
           }
-          store.dispatch('createPost', newPost).then(() => {
-            createMessage('发表成功，2秒后跳转到文章', 'success', 2000)
-            setTimeout(() => {
-              router.push({ name: 'column', params: { id: column } })
-            }, 2000)
-          })
+          store.commit('createPost', newPost)
+          router.push({ name: 'column', params: { id: column } })
         }
       }
     }

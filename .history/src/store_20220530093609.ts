@@ -8,7 +8,7 @@ export interface ResponseType<P = any> {
 export interface UserProps {
   isLogin: boolean;
   nickName?: string;
-  _id: string;
+  _id: number;
   column?: string;
   email?: string;
 }
@@ -72,7 +72,7 @@ const store = createStore<GlobalDataProps>({
     loading: false,
     columns: [],
     posts: [],
-    user: { _id: '', isLogin: false }
+    user: { isLogin: false }
   },
   mutations: {
     createPost (state, newPost) {

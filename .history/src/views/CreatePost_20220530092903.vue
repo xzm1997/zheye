@@ -82,25 +82,17 @@ export default defineComponent({
     }
     const onFormSubmit = (result: boolean) => {
       if (result) {
-        const { column, _id } = store.state.user
+        const { column } = store.state.user
         if (column) {
           const newPost: PostProps = {
             _id: new Date().getTime().toString(),
             title: titleVal.value,
             content: contentVal.value,
-            column,
-            createdAt: new Date().toLocaleString(),
-            author: _id
+            column: column.toString(),
+            createdAt: new Date().toLocaleString()
           }
-          if (imageId) {
-            newPost.image = imageId
-          }
-          store.dispatch('createPost', newPost).then(() => {
-            createMessage('发表成功，2秒后跳转到文章', 'success', 2000)
-            setTimeout(() => {
-              router.push({ name: 'column', params: { id: column } })
-            }, 2000)
-          })
+          store.commit('createPost', newPost)
+          router.push({ name: 'column', params: { id: column } })
         }
       }
     }

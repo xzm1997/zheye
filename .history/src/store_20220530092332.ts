@@ -8,7 +8,7 @@ export interface ResponseType<P = any> {
 export interface UserProps {
   isLogin: boolean;
   nickName?: string;
-  _id: string;
+  _id?: number;
   column?: string;
   email?: string;
 }
@@ -32,10 +32,9 @@ export interface PostProps {
   title: string;
   excerpt?: string;
   content?: string;
-  image?: ImageProps | string;
+  image?: ImageProps;
   createdAt: string;
   column: string;
-  author: string;
 }
 
 export interface GlobalErrorProps {
@@ -72,7 +71,7 @@ const store = createStore<GlobalDataProps>({
     loading: false,
     columns: [],
     posts: [],
-    user: { _id: '', isLogin: false }
+    user: { isLogin: false }
   },
   mutations: {
     createPost (state, newPost) {
@@ -103,6 +102,7 @@ const store = createStore<GlobalDataProps>({
       localStorage.setItem('token', token)
       axios.defaults.headers.common.Authorization = `Bearer ${token}`
     },
+    create
     logout (state) {
       state.token = ''
       localStorage.remove('token')
@@ -124,9 +124,6 @@ const store = createStore<GlobalDataProps>({
     },
     login ({ commit }, payload) {
       return postAndCommit('/user/login', 'login', commit, payload)
-    },
-    createPost ({ commit }, payload) {
-      return postAndCommit('/posts', 'createPost', commit, payload)
     },
     loginAndFetch ({ dispatch }, loginData) {
       return dispatch('login', loginData).then(() => {
