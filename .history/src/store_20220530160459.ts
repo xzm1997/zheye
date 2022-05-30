@@ -5,22 +5,20 @@ export interface ResponseType<P = any> {
   msg: string;
   data: P;
 }
-
-export interface ImageProps {
-  _id?: string;
-  url?: string;
-  fitUrl?: string;
-  createdAt?: string;
-}
-
 export interface UserProps {
   isLogin: boolean;
   nickName?: string;
   _id: string;
   column?: string;
   email?: string;
-  description?: string;
-  avatar?: ImageProps;
+  avatar: string;
+}
+
+export interface ImageProps {
+  _id?: string;
+  url?: string;
+  fitUrl?: string;
+  createdAt?: string;
 }
 
 export interface ColumnProps {
@@ -39,7 +37,6 @@ export interface PostProps {
   createdAt: string;
   column: string;
   author: string;
-  isHTML?: boolean;
 }
 
 export interface GlobalErrorProps {

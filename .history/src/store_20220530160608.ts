@@ -19,7 +19,6 @@ export interface UserProps {
   _id: string;
   column?: string;
   email?: string;
-  description?: string;
   avatar?: ImageProps;
 }
 
@@ -39,7 +38,6 @@ export interface PostProps {
   createdAt: string;
   column: string;
   author: string;
-  isHTML?: boolean;
 }
 
 export interface GlobalErrorProps {

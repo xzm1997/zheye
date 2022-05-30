@@ -52,3 +52,14 @@ export function beforeUploadCheck (file: File, condition:CheckCondition) {
     error
   }
 }
+
+export function addColumnAvatar (data: ColumnProps | UserProps, width: number, height: number) {
+  if (data.avatar) {
+    generateFitUrl(data.avatar, width, height)
+  } else {
+    const parseCol = data as ColumnProps
+    data.avatar = {
+      fitUrl: require(parseCol.title ? '@/assets/column.jpg' : '@/assets/avatar.jpg')
+    }
+  }
+}

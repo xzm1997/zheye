@@ -39,7 +39,6 @@ export interface PostProps {
   createdAt: string;
   column: string;
   author: string;
-  isHTML?: boolean;
 }
 
 export interface GlobalErrorProps {
