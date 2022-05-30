@@ -27,7 +27,7 @@ export default defineComponent({
     const route = useRoute()
     const store = useStore<GlobalDataProps>()
     const currentId = route.params.id
-    // console.log(currentId)
+    console.log(currentId)
     onMounted(() => {
       store.dispatch('fetchColumn', currentId)
       store.dispatch('fetchPosts', currentId)

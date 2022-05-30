@@ -32,7 +32,7 @@ export default defineComponent({
     const currentId = route.params.id
     const md = new MarkdownIt()
     onMounted(() => {
-      store.dispatch('fetchPost', currentId)
+      store.dispatch('fetchPosts', currentId)
     })
     const currentPost = computed<PostProps>(() => store.getters.getCurrentPost(currentId))
     const currentHTML = computed(() => {

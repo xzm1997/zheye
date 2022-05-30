@@ -71,7 +71,7 @@ export interface GlobalDataProps {
 
 const getAndCommit = async (url: string, mutationName: string, commit: Commit) => {
   const { data } = await axios.get(url)
-  // console.log(data)
+  console.log(data)
   commit(mutationName, data)
   return data
 }
@@ -174,10 +174,9 @@ const store = createStore<GlobalDataProps>({
   },
   getters: {
     getColumnById: (state) => (id: string) => {
-      // console.log(id)
       return state.columns.find(c => c._id === id)
     },
-    getPostsByCid: (state) => (cid: string) => {
+    getPostsByCid: (state) => () => {
       return state.posts
     },
     getCurrentPost: (state) => (id: string) => {

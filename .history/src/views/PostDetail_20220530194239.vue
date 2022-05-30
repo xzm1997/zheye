@@ -20,12 +20,7 @@ import { defineComponent, onMounted, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useStore } from 'vuex'
 import { GlobalDataProps, PostProps, ImageProps } from '../store'
-import UserProfile from '../components/UserProfile.vue'
 export default defineComponent({
-  name: 'PostDetail',
-  components: {
-    UserProfile
-  },
   setup () {
     const store = useStore<GlobalDataProps>()
     const route = useRoute()

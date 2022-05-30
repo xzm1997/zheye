@@ -1,5 +1,5 @@
 import { createStore, Commit } from 'vuex'
-import axios, { AxiosRequestConfig } from 'axios'
+import axios from 'axios'
 export interface ResponseType<P = any> {
   code: number;
   msg: string;
@@ -47,25 +47,12 @@ export interface GlobalErrorProps {
   message?: string;
 }
 
-interface ListProps<P> {
-  [id: string]: P;
-}
-
-export interface LoadedPostProps {
-  columnId?: string;
-  currentPage?: number;
-  total?: number;
-}
-
 export interface GlobalDataProps {
   error: GlobalErrorProps;
   token: string;
   loading: boolean;
   columns: ColumnProps[];
-  posts: {
-    data: ListProps<PostProps>;
-    loadedColumns: ListProps<LoadedPostProps>;
-  };
+  posts: PostProps[];
   user: UserProps;
 }
 
@@ -82,30 +69,18 @@ const postAndCommit = async (url: string, mutationName: string, commit: Commit, 
   return data
 }
 
-const asyncAndCommit = async (url: string, mutationName: string, commit: Commit,
-  config: AxiosRequestConfig = { method: 'get' }, extraData?: any) => {
-  const { data } = await axios(url, config)
-  if (extraData) {
-    commit(mutationName, { data, extraData })
-  } else {
-    commit(mutationName, data)
-  }
-  return data
-}
-
 const store = createStore<GlobalDataProps>({
   state: {
     error: { status: false },
     token: localStorage.getItem('token') || '',
     loading: false,
     columns: [],
-    posts: { data: {}, loadedColumns: {} },
+    posts: [],
     user: { _id: '', isLogin: false }
   },
   mutations: {
     createPost (state, newPost) {
-      // state.posts.push(newPost)
-      state.posts.data[newPost._id] = newPost
+      state.posts.push(newPost)
     },
     fetchColumns (state, rawData) {
       state.columns = rawData.data.list
@@ -114,7 +89,7 @@ const store = createStore<GlobalDataProps>({
       state.columns = [rawData.data]
     },
     fetchPosts (state, rawData) {
-      // console.log(rawData.data.list)
+      console.log(rawData.data.list)
       state.posts = rawData.data.list
     },
     setLoading (state, status) {
@@ -148,15 +123,6 @@ const store = createStore<GlobalDataProps>({
     fetchPosts ({ commit }, cid) {
       return getAndCommit(`/columns/${cid}/posts`, 'fetchPosts', commit)
     },
-    fetchPost ({ state, commit }, id) {
-      const currentPost = state.posts.data[id]
-      // 没有获取过 或者 没有详细内容的话要发送请求
-      if (!currentPost || !currentPost.content) {
-        return asyncAndCommit(`/api/posts/${id}`, 'fetchPost', commit)
-      } else {
-        return Promise.resolve({ data: currentPost })
-      }
-    },
     fetchCurrentUser ({ commit }) {
       return getAndCommit('/user/current', 'CurrentUser', commit)
     },
@@ -174,10 +140,9 @@ const store = createStore<GlobalDataProps>({
   },
   getters: {
     getColumnById: (state) => (id: string) => {
-      // console.log(id)
       return state.columns.find(c => c._id === id)
     },
-    getPostsByCid: (state) => (cid: string) => {
+    getPostsByCid: (state) => () => {
       return state.posts
     },
     getCurrentPost: (state) => (id: string) => {

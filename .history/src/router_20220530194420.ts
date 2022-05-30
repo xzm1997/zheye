@@ -4,7 +4,6 @@ import LogIn from './views/LoginPage.vue'
 import ColumnDetail from './views/ColumnDetail.vue'
 import CreatePost from './views/CreatePost.vue'
 import SignupPage from './views/SignupPage.vue'
-import PostDetail from './views/PostDetail.vue'
 import store from './store'
 import axios from 'axios'
 

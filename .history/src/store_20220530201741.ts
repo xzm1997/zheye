@@ -114,7 +114,7 @@ const store = createStore<GlobalDataProps>({
       state.columns = [rawData.data]
     },
     fetchPosts (state, rawData) {
-      // console.log(rawData.data.list)
+      console.log(rawData.data.list)
       state.posts = rawData.data.list
     },
     setLoading (state, status) {
@@ -174,10 +174,9 @@ const store = createStore<GlobalDataProps>({
   },
   getters: {
     getColumnById: (state) => (id: string) => {
-      // console.log(id)
       return state.columns.find(c => c._id === id)
     },
-    getPostsByCid: (state) => (cid: string) => {
+    getPostsByCid: (state) => () => {
       return state.posts
     },
     getCurrentPost: (state) => (id: string) => {

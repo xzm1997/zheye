@@ -1,5 +1,5 @@
 import { createStore, Commit } from 'vuex'
-import axios, { AxiosRequestConfig } from 'axios'
+import axios from 'axios'
 export interface ResponseType<P = any> {
   code: number;
   msg: string;
@@ -82,17 +82,6 @@ const postAndCommit = async (url: string, mutationName: string, commit: Commit, 
   return data
 }
 
-const asyncAndCommit = async (url: string, mutationName: string, commit: Commit,
-  config: AxiosRequestConfig = { method: 'get' }, extraData?: any) => {
-  const { data } = await axios(url, config)
-  if (extraData) {
-    commit(mutationName, { data, extraData })
-  } else {
-    commit(mutationName, data)
-  }
-  return data
-}
-
 const store = createStore<GlobalDataProps>({
   state: {
     error: { status: false },
@@ -114,7 +103,7 @@ const store = createStore<GlobalDataProps>({
       state.columns = [rawData.data]
     },
     fetchPosts (state, rawData) {
-      // console.log(rawData.data.list)
+      console.log(rawData.data.list)
       state.posts = rawData.data.list
     },
     setLoading (state, status) {
@@ -174,10 +163,9 @@ const store = createStore<GlobalDataProps>({
   },
   getters: {
     getColumnById: (state) => (id: string) => {
-      // console.log(id)
       return state.columns.find(c => c._id === id)
     },
-    getPostsByCid: (state) => (cid: string) => {
+    getPostsByCid: (state) => () => {
       return state.posts
     },
     getCurrentPost: (state) => (id: string) => {
