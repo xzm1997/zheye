@@ -69,7 +69,7 @@ export default defineComponent({
         }).then((resp) => {
           fileStatus.value = 'success'
           uploadedData.value = resp.data
-          // console.log(uploadedData)
+          console.log(uploadedData)
           context.emit('file-uploaded', resp.data)
         }).catch((error) => {
           fileStatus.value = 'error'
