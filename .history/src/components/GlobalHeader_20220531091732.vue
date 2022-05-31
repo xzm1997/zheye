@@ -20,6 +20,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
 import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
 import DropDown from './Dropdown.vue'
 import DropdownItem from './DropdownItem.vue'
 import { UserProps } from '../store'
@@ -39,9 +40,8 @@ export default defineComponent({
   setup () {
     const store = useStore()
     const onClickLogout = () => {
-      store.commit('logout')
-      // localStorage.clear()
-      location.reload()
+      // store.commit('logout')
+      localStorage.clear()
     }
     return {
       onClickLogout

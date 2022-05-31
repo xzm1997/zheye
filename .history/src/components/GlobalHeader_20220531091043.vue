@@ -10,7 +10,7 @@
         <drop-down :title="`你好 ${user.nickName}`">
           <dropdown-item><router-link :to="`/create`" class="dropdown-item">新建文章</router-link></dropdown-item>
           <dropdown-item disabled><a href="#" class="dropdown-item">编辑资料</a></dropdown-item>
-          <dropdown-item><a href="#" class="dropdown-item" @click="onClickLogout">退出登录</a></dropdown-item>
+          <dropdown-item><a href="#" class="dropdown-item">退出登录</a></dropdown-item>
         </drop-down>
       </li>
     </ul>
@@ -19,7 +19,6 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
-import { useStore } from 'vuex'
 import DropDown from './Dropdown.vue'
 import DropdownItem from './DropdownItem.vue'
 import { UserProps } from '../store'
@@ -38,10 +37,8 @@ export default defineComponent({
   },
   setup () {
     const store = useStore()
-    const onClickLogout = () => {
+    const onClickLogout: boolean = () => {
       store.commit('logout')
-      // localStorage.clear()
-      location.reload()
     }
     return {
       onClickLogout

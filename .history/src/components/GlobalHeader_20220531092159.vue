@@ -39,8 +39,8 @@ export default defineComponent({
   setup () {
     const store = useStore()
     const onClickLogout = () => {
-      store.commit('logout')
-      // localStorage.clear()
+      // store.commit('logout')
+      localStorage.clear()
       location.reload()
     }
     return {

@@ -10,7 +10,7 @@
         <drop-down :title="`你好 ${user.nickName}`">
           <dropdown-item><router-link :to="`/create`" class="dropdown-item">新建文章</router-link></dropdown-item>
           <dropdown-item disabled><a href="#" class="dropdown-item">编辑资料</a></dropdown-item>
-          <dropdown-item><a href="#" class="dropdown-item" @click="onClickLogout">退出登录</a></dropdown-item>
+          <dropdown-item><a href="#" class="dropdown-item">退出登录</a></dropdown-item>
         </drop-down>
       </li>
     </ul>
@@ -40,8 +40,6 @@ export default defineComponent({
     const store = useStore()
     const onClickLogout = () => {
       store.commit('logout')
-      // localStorage.clear()
-      location.reload()
     }
     return {
       onClickLogout
